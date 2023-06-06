@@ -168,9 +168,204 @@
 
     A. Talk About It
 
-    What are the things in an array called?
-    Do Arrays guarantee those things will be in order?
-    What real-life thing could you model with an array?
+    What are the things in an array called? A: elements.
+    Do Arrays guarantee those things will be in order? A: no.
+    What real-life thing could you model with an array? A: student roster (name, age, grade, etc).
 
-    */
-   
+    B. Easy Does It
+
+    Create an array that contains three quotes and store it in a variable called quotes.
+    let quotes = ["i think therefore i am", "it's not over till it's over", "better to be safe than sorry"];
+
+    C. Accessing Elements
+
+    Given the following array, const randomThings = [1, 10, "Hello", true]:
+    How do you access the 1st element in the array? A: randomThings[0]
+    What would you write to access the 3rd element of the array? A: randomThings[2];
+
+    D. Change Values
+
+    Given the following array, const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"]:
+    Change the value of "Github" to "Octocat".
+    Add a new element, "Cloud City" to the array.
+    Check the value of the array to make sure it updated the array.
+
+    const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"];
+
+    ourClass[4] = "Octocat";
+    ourClass.push("Cloud City");
+    
+    console.log(ourClass);
+
+
+    E. Mix It Up
+
+    Note: You don't really need .splice() for these. You could use it, but there are simpler array methods that are more appropriate.
+    Given the following array, const myArray = [5, 10, 500, 20]:
+    Add the string "Aegon" to the end of the array. Add another string of your choice to the end of the array.
+    Remove the 5 from the beginning of the array.
+    Add the string "Bob Marley" to the beginning of the array.
+    Remove the string of your choice from the end of the array.
+    Reverse this array using Array.prototype.reverse().
+
+    Did you mutate the array? What does mutate mean? Did the .reverse() method return anything? A: yes I did mutate the array. mutate means to change. .reverse() does not return any value it just alters the original array.
+
+
+    let myArray = [5, 10, 500, 20];
+
+    myArray.push("Aegon");
+    myArray.push("Coffee");
+    myArray.shift();
+    myArray.unshift("Bob Marley");
+
+    console.log(myArray);
+
+    // remove "Aegon" by filtering
+    myArray = myArray.filter(item => item !== "Aegon");
+    myArray.reverse();
+    console.log(myArray);
+
+
+    F. Biggie Smalls
+
+    Create a variable that contains an integer.
+    Write an if ... else statement that:
+    console.log()s "little number" if the number is entered is less than 100.
+    console.log()s "big number" if the number is greater than or equal to 100.
+
+
+    let myNumber = 7;
+
+    if (myNumber < 100) {
+        console.log("little number");
+        } else if (myNumber >= 100) {
+            console.log("big number");
+    }
+
+
+    G. Monkey in the Middle
+
+    Write an if ... else statement:
+    console.log() little number if the number entered is less than 5.
+    If the number entered is more than 10, log "big number".
+    Otherwise, log "monkey".
+
+    let myNumber = 7;
+    
+    if (myNumber < 5) {
+        console.log("little number");
+        } else if (myNumber > 10) {
+            console.log("big number");
+        } else {
+            console.log("monkey");
+        }
+
+    H. What's in Your Closet?
+
+    Below, we've given you examples of Kristyn and Thom's closets modeled as data in JavaScript.    
+    
+    What's Kristyn wearing today? Using bracket notation to access items in kristynsCloset, log the sentence "Kristyn is rocking that " + *the third item in Kristyn's closet* + " today!" to the console.
+    Kristyn just bought some sweet shades! Add "raybans" to her closet after "yellow knit hat".
+    Kristyn spilled coffee on her hat... modify this item to read "stained knit hat" instead of yellow.
+    Put together an outfit for Thom! Using bracket notation, access the first element in Thom's shirts array.
+    In the same way, access one item from Thom's pants array.
+    Access one item from Thom's accessories array.
+    Log a sentence about what Thom's wearing. Example: "Thom is looking fierce in a grey button-up, jeans and wool scarf!"
+    Get more specific about what kind of PJs Thom is wearing this winter. Modify the name of his PJ pants to Footie Pajamas.
+
+
+    const kristynsCloset = [
+        "left shoe",
+        "cowboy boots",
+        "right sock",
+        "Per Scholas hoodie",
+        "green pants",
+        "yellow knit hat",
+        "marshmallow peeps"
+      ];
+      
+      // Thom's closet is more complicated. Check out this nested data structure!!
+      const thomsCloset = [
+        [
+          // These are Thom's shirts
+          "grey button-up",
+          "dark grey button-up",
+          "light blue button-up",
+          "blue button-up",
+        ],[
+          // These are Thom's pants
+          "grey jeans",
+          "jeans",
+          "PJs"
+        ],[
+          // Thom's accessories
+          "wool mittens",
+          "wool scarf",
+          "raybans"
+        ]
+      ];
+
+    console.log("Kristyn is rocking that " + kristynsCloset[2] + " today!");
+
+    const index = kristynsCloset.indexOf("yellow knit hat");
+    kristynsCloset.splice(index + 1, 0, "raybans");
+
+    const index2 = kristynsCloset.indexOf("yellow knit hat");
+    if (index2 !== -1) {
+        kristynsCloset.splice(index2, 1, "stained knit hat");
+    }
+
+    // console.log(kristynsCloset);
+    console.log("Thom is looking fierce in a " + 
+        thomsCloset[0][0] + ", " + 
+        thomsCloset[1][2] + " and " + 
+        thomsCloset[2][0] + "!");
+
+    const index3 = thomsCloset.indexOf("PJs");
+    if (index3 !== -1) {
+        thomsCloset.splice(index2, 1, "Footie Pajamas");
+    }
+
+
+// IV. Functions 
+
+    A. printGreeting
+
+    Write a function called printGreeting with a parameter name that returns a greeting with the argument interpolated into the greeting, like so: "Hello there, Slimer!"
+
+    function printGreeting(name) {
+        return "Hello, " + name + "! Welcome!";
+        }
+
+    console.log(printGreeting("Brian"));
+
+
+    B. printCool
+
+    Write a function printCool that accepts one parameter, name as an argument. The function should print the name and a message saying that that person is cool.
+
+    function printCool(name) {
+        console.log(name + " is cool");
+    }
+
+    printCool("Captain Reynolds");
+
+
+    C. calculateCube
+
+    Write a function calculateCube that takes a single number and prints the volume of a cube made from that number.
+
+
+    function calculateCube(number) {
+        var volume = number * number * number;
+        console.log("The volume of a cube with side length " + number + " is " + volume);
+    }
+
+    calculateCube(5);
+
+
+    D. isVowel
+
+    Write a function isVowel that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise. The vowel could be upper or lower case.
+
+    
